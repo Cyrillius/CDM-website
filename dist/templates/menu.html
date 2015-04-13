@@ -1,0 +1,27 @@
+<nav ng-controller="MenuCtrl" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- note the ng-class here -->
+    <div class="navbar-collapse" collapse="navCollapsed">
+
+      <ul class="nav navbar-nav">
+        <li data-ng-repeat="page in menu" ng-class="set_buttonClass(page.sub.length != 0)" dropdown on-toggle="toggled(open)">
+          <a ng-if="page.sub.length == 0" href="{{page.route}}">{{page.title}}</a>
+          <a ng-if="page.sub.length != 0"class="dropdown-toggle"  dropdown-toggle href="#">{{page.title}}<span class="caret"></span></a>
+          <ul class="dropdown-menu" >
+            <li ng-repeat="subpage in page.sub"><a href="{{subpage.route}}">{{subpage.title}}</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,15 @@
+<!--
+<div ng-controller="CarrouselCtrl" data-ng-init="start()">   
+      <div  class="slider" data-ng-repeat="slide in slides">
+        <img  class="slide animate-show" ng-src="{{slide.url}}" ng-hide="!isCurrentSlideIndex($index)" ng-style="{'width': windowWidth , 'height': windowHeight}" >
+      </div>
+</div>
+
+-->
+
+<div ng-controller="CarrouselCtrl">   
+      <div  data-ng-repeat="slide in slides" class="slide animate-show" 
+      		ng-style="{'background': 'url('+ slide.url +') no-repeat center center fixed'}"
+      		ng-hide="!isCurrentSlideIndex($index)">
+      </div>
+</div>
